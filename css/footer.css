@@ -1,0 +1,11 @@
+footer {
+  padding:40px 8%;
+  text-align:center;
+  border-top:1px solid #222;
+}
+.footer-content .logo {
+  margin-bottom:10px;
+  display:block;
+  font-size:22px;
+  font-weight:700;
+}

@@ -1,0 +1,29 @@
+.contact-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+}
+#contactForm {
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+#contactForm input,
+#contactForm textarea {
+  padding:14px 16px;
+  border-radius:12px;
+  border:1px solid #333;
+  background:var(--bg);
+  color:var(--text);
+  outline:none;
+}
+#contactForm textarea { height:120px; resize:none; }
+#formMsg { font-size:14px; margin-top:10px; min-height:20px; }
+.contact-info p { margin-bottom:8px; color:var(--muted); }
+.contact-info iframe {
+  width:100%;
+  height:240px;
+  border-radius:16px;
+  border:0;
+  margin-top:16px;
+}

@@ -1,0 +1,13 @@
+:root {
+  --bg: #0f0f0f;
+  --card: #1a1a1a;
+  --primary: #c49a6c;
+  --text: #fff;
+  --muted: #888;
+}
+body.light {
+  --bg: #faf7f2;
+  --card: #fff;
+  --text: #111;
+  --muted: #666;
+}
