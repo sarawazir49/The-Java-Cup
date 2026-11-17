@@ -63,7 +63,7 @@ Logic in App.tsx:tsxuseEffect(() => {
   const t = document.getElementById('themeToggle')
   // ... toggle body.light + localStorage
 }, [])And styles in css/main.css:cssbody.light { background: #fdf6ee !important; }👩‍💻 Author
-Sara Al Wazir Hadidi
+Sara Al Wazir 
 Built as a learning project for React + Vite.
 📄 License
 Free to use for learning.
