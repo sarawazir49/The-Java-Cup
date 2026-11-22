@@ -40,3 +40,18 @@
 .card h3 { margin-top:16px; }
 .card p { color:var(--muted); font-size:13px; margin:4px 0 8px; }
 .card span { color:var(--primary); font-weight:700; font-size:18px; }
+
+.add-btn{
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: #c68b59;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.add-btn:hover{
+  background: #a9713f;
+}

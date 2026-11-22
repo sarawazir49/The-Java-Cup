@@ -1,18 +1,22 @@
 import { useState } from 'react'
+import { useCart } from '../context/CartContext'
 
 const products = [
-  { id:1, category:'coffee', name:'Espresso', desc:'Double shot', price:'20 kr', img:'https://images.unsplash.com/photo-1510707577719-ae7c14805e3a' },
-  { id:2, category:'coffee', name:'Iced Latte', desc:'Oat milk', price:'30 kr', img:'https://images.unsplash.com/photo-1461023058943-07fcbe16d735' },
-  { id:3, category:'coffee', name:'Cappuccino', desc:'Foam art', price:'30 kr', img:'https://images.unsplash.com/photo-1572442388796-11668a67e53d' },
-  { id:4, category:'sweets', name:'Tiramisu', desc:'Mascarpone', price:'60 kr', img:'https://images.unsplash.com/photo-1578985545062-69928b1d9587' },
-  { id:5, category:'sweets', name:'Gelato', desc:'Homemade', price:'55 kr', img:'https://images.unsplash.com/photo-1563805042-7684c019e1cb' },
-  { id:6, category:'sweets', name:'Cookies Box', desc:'6 pcs', price:'120 kr', img:'https://images.unsplash.com/photo-1499636136210-6f4ee915583e' },
+  { id:1, category:'coffee', name:'Espresso', desc:'Double shot', price:20, img:'https://images.unsplash.com/photo-1510707577719-ae7c14805e3a' },
+  { id:2, category:'coffee', name:'Iced Latte', desc:'Oat milk', price:30, img:'https://images.unsplash.com/photo-1461023058943-07fcbe16d735' },
+  { id:3, category:'coffee', name:'Cappuccino', desc:'Foam art', price:30, img:'https://images.unsplash.com/photo-1572442388796-11668a67e53d' },
+  { id:4, category:'sweets', name:'Tiramisu', desc:'Mascarpone', price:60, img:'https://images.unsplash.com/photo-1578985545062-69928b1d9587' },
+  { id:5, category:'sweets', name:'Gelato', desc:'Homemade', price:55, img:'https://images.unsplash.com/photo-1563805042-7684c019e1cb' },
+  { id:6, category:'sweets', name:'Cookies Box', desc:'6 pcs', price:120, img:'https://images.unsplash.com/photo-1499636136210-6f4ee915583e' },
 ]
 
 export default function Products(){
   const [filter, setFilter] = useState('all')
+  const { addToCart, cart } = useCart()
 
   const filtered = filter === 'all' ? products : products.filter(p => p.category === filter)
+
+  const isInCart = (id: number) => cart.some(i => i.id === id)
 
   return (
     <section className="section dark" style={{paddingTop: '140px'}}>
@@ -28,7 +32,13 @@ export default function Products(){
             <img src={p.img} alt={p.name} />
             <h3>{p.name}</h3>
             <p>{p.desc}</p>
-            <span>{p.price}</span>
+            <span>{p.price} kr</span>
+            <button
+              className="add-btn"
+              onClick={() => addToCart({ id: p.id, name: p.name, price: p.price, image: p.img })}
+            >
+              {isInCart(p.id) ? '✅ Added - Add Again +' : '🛒 Add to Basket'}
+            </button>
           </div>
         ))}
       </div>
